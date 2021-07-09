@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ChatPage extends StatelessWidget{
+class CallPage extends StatelessWidget{
   @override
   Widget build(BuildContext context)=>Scaffold(
     appBar: AppBar(leading: Icon(Icons.arrow_back),
-    title: Text("AstroBuddy Chat"),
+    title: Text("Talk to AstroBuddy"),
     centerTitle: true,
     actions: [
       IconButton(onPressed: (){}, icon: Icon(Icons.history),)
     ],
     ),
-    body: Text("Chat"),);
+    body: Text("Call"),);
 
 }

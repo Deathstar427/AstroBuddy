@@ -1,57 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'home1.dart';
 import 'chat.dart';
-class App extends StatelessWidget{
+import 'call.dart';
+class App extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState()=>_AppState();
+
+}
+
+class _AppState extends State<App>{
+  int index=0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Astro Buddy',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Home(),
+      title: 'AstroBuddy',
+      
+      home:Scaffold(
+      body:buildPages(),
+      bottomNavigationBar: buildBottomNav(),
+    ),
     );
   }
+  Widget buildPages(){
+    switch(index){
+      case 0: return HomePage();
+      case 1: return ChatPage();
+      case 2: return CallPage();
+      default: return HomePage();
 
-
-}
-class Home extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState()=>Homestate();
-
-}
-
-class Homestate extends State<Home>{
-  int index=0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar( leading: Icon(Icons.person),
-        centerTitle: true,
-        title: Text("Astro Buddy"),
-        actions: [IconButton(icon:Icon(Icons.credit_card), onPressed: (){} ),],
-      ),
-      body: Center(child: Text("Home"),),
-      bottomNavigationBar: buildBottomNavigation(),
-    );
-
+    }
   }
-  
 
-  Widget buildBottomNavigation(){
+  Widget buildBody()=>Center(
+    child: Text("Home"),);
+
+  Widget buildBottomNav() {
     return BottomNavyBar(
       selectedIndex: index,
-      onItemSelected: (index)=> setState((){
-        this.index=index;
-    switch(index) {
-      case 0: Navigator.push(context, MaterialPageRoute(builder:(context)=>App(), )); break;
-      case 1: Navigator.push(context, MaterialPageRoute(builder:(context)=>ChatPage(), )); break;
-      default: Navigator.push(context, MaterialPageRoute(builder:(context)=>App(), )); break;
- 
-    }
-  }),
-      items:<BottomNavyBarItem>[
+      onItemSelected: (index)=> setState(()=>this.index=index),
+      items: <BottomNavyBarItem>[
         BottomNavyBarItem(
           icon: Icon(Icons.home),
           title: Text("Home"),
@@ -72,7 +61,8 @@ class Homestate extends State<Home>{
           title: Text("Settings"),
           textAlign: TextAlign.center,
         ),
-      ],);
-  }
+      ],
+      );
 
+  }
 }
