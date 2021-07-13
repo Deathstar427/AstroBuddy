@@ -10,6 +10,7 @@ class ChatPage extends StatelessWidget{
       IconButton(onPressed: (){}, icon: Icon(Icons.history),)
     ],
     ),
-    body: Text("Chat"),);
+    body:Row(children: [Container(child: Text("Questions people have asked \nAstroBuddy:"),margin:EdgeInsets.all(20),)],) 
+    );
 
 }
