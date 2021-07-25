@@ -182,6 +182,7 @@ Widget _gridView() {
   List<String> items = ["1", "2", "3", "4", "5", "6"];
   return GridView.builder(
     itemCount: items.length,
+    physics: const NeverScrollableScrollPhysics(),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
     itemBuilder: (context, index) => Card(
       margin: EdgeInsets.all(30.0),
