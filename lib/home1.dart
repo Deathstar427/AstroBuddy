@@ -11,6 +11,10 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(10),
+          )),
           leading: Icon(Icons.person),
           centerTitle: true,
           title: Text("AstroBuddy"),
@@ -126,7 +130,7 @@ class list_view extends StatefulWidget {
 
 class _list_view extends State<list_view> {
   int _sindex = 0;
-  List<String> item = <String>["Garv", "Shah", "Is", "A"];
+  List<String> item = <String>["Your Kundli", "Others Kundli", "Match Making", "Prediction", "Panchang"];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -179,10 +183,10 @@ class _grid extends State<grid> {
 }*/
 
 Widget _gridView() {
-  List<String> items = ["1", "2", "3", "4", "5", "6"];
+  List<String> items = ["Your Kundli", "Others Kundli", "Match Making", "Prediction", "Panchang"];
   return GridView.builder(
     itemCount: items.length,
-    physics: const NeverScrollableScrollPhysics(),
+    //physics: const NeverScrollableScrollPhysics(),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
     itemBuilder: (context, index) => Card(
       margin: EdgeInsets.all(30.0),
