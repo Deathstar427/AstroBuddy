@@ -69,13 +69,13 @@ class _HomePage extends State<HomePage> {
                   child: Row(
                     children: [
                       Icon(Icons.person_add),
-                      Text("  "),
-                      Text("Add Other Users"),
+                      //Text("  "),
+                      Text("  Add Other Users"),
                     ],
                   ),
                 ),
               ),
-              padding: EdgeInsets.only(left: 25, right: 25),
+              //padding: EdgeInsets.only(left: 25, right: 25),
               margin: EdgeInsets.only(
                 left: 80,
                 right: 80,
@@ -131,6 +131,7 @@ class _list_view extends State<list_view> {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: item.length,
       itemBuilder: (context, int index) {
         final items = item[index];
@@ -146,6 +147,7 @@ class _list_view extends State<list_view> {
                     onTap: () {
                       setState(() {
                         _sindex = index;
+                        print(_sindex);
                       });
                     },
                   ),
@@ -185,7 +187,7 @@ Widget _gridView() {
     physics: const NeverScrollableScrollPhysics(),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
     itemBuilder: (context, index) => Card(
-      margin: EdgeInsets.all(30.0),
+      margin: EdgeInsets.all(20.0),
       elevation: 4.0,
       child: GridTile(
           child: Center(
