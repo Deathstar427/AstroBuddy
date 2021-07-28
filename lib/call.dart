@@ -1,3 +1,4 @@
+import 'package:astrobuddy_test/pending_call.dart';
 import 'package:flutter/material.dart';
 
 class CallPage extends StatelessWidget {
@@ -20,6 +21,19 @@ class CallPage extends StatelessWidget {
         ],
       ),
       body: videoPage(),
+      floatingActionButton: Container(
+          width: 200,
+          //height: 20,
+          child: FittedBox(
+            child: FloatingActionButton.extended(
+              onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Pencall())),
+              hoverColor: Colors.grey[400],
+              icon: Icon(Icons.call),
+              label: Text("Avail your last pending call"),
+            ),
+          )),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerDocked,
     );
   }
 }
