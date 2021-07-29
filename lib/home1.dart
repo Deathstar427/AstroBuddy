@@ -1,7 +1,7 @@
 import 'package:astrobuddy_test/call.dart';
 import 'package:flutter/material.dart';
 import 'chat.dart';
-
+import 'call_creds.dart';
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HomePage();
@@ -17,12 +17,13 @@ class _HomePage extends State<HomePage> {
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),
           )),
-          leading: Icon(Icons.person),
+          leading: new IconButton(icon: new Icon(Icons.person), onPressed: users,
+            ),
           centerTitle: true,
           title: Text("AstroBuddy"),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: creds,
               icon: Icon(
                 Icons.credit_card,
               ),
@@ -71,7 +72,7 @@ class _HomePage extends State<HomePage> {
             Container(
               child: Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: users,
                   child: Row(
                     children: [
                       Icon(Icons.person_add),
@@ -123,6 +124,50 @@ class _HomePage extends State<HomePage> {
           ],
         )));
   }
+  void users()=>showModalBottomSheet(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(24),
+    ),
+    context: context,
+    builder: (context)=>Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ListTile(
+          leading: Icon(Icons.person_add),
+          title: Text('Add Other'),
+          onTap: (){},
+        ),
+        ListTile(
+          leading: Icon(Icons.person),
+          title: Text('Add Other'),
+          subtitle: Text('Main User'),
+          onTap: (){},
+        ),
+      ],
+    )
+    );
+
+    void creds()=>showModalBottomSheet(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(24),
+    ),
+    context: context,
+    builder: (context)=>Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ListTile(
+          leading: Icon(Icons.chat),
+          title: Text('Buy Chat Credits'),
+          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Callcred())),
+        ),
+        ListTile(
+          leading: Icon(Icons.call),
+          title: Text('Buy Call Credits'),
+          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>CallPage())),
+        ),
+      ],
+    )
+    ); 
 }
 
 class list_view extends StatefulWidget {
