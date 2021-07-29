@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 
 class ChatPage extends StatelessWidget {
   @override
@@ -10,7 +11,10 @@ class ChatPage extends StatelessWidget {
             borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(10),
         )),
-        leading: Icon(Icons.arrow_back),
+        leading: new IconButton(icon: new Icon(Icons.arrow_back), onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=>App()));  
+            }
+            ),
         title: Text("AstroBuddy Chat"),
         centerTitle: true,
         actions: [

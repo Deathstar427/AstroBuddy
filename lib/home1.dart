@@ -1,4 +1,6 @@
+import 'package:astrobuddy_test/call.dart';
 import 'package:flutter/material.dart';
+import 'chat.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,7 +40,7 @@ class _HomePage extends State<HomePage> {
               child: Row(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>CallPage())),
                     child: Row(children: [
                       Icon(Icons.call),
                       Text("  "),
@@ -49,7 +51,7 @@ class _HomePage extends State<HomePage> {
                   Text("-OR-"),
                   Text("  "),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage())),
                     child: Row(
                       children: [
                         Icon(Icons.chat),
