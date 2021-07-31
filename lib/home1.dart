@@ -125,7 +125,7 @@ class _HomePage extends State<HomePage> {
               ),
             ),
             Container(
-              height: 480,
+              height: 520,
               child: x == 0 ? listview() : _gridView(),
             ),
           ],
@@ -222,9 +222,9 @@ Widget listview() {
       listview1(item[4]),
     ]))),
 
-    //SizedBox(height: 20),
     Container(
       child: Text("Our Resource"),
+      alignment: Alignment.bottomLeft,
     ),
 
     Container(
@@ -234,7 +234,8 @@ Widget listview() {
         children: [listview1("VIDEOS"), listview1("MYTH BUSTER")],
       ),
     ),
-    Container(child: Text("Daily Horoscope")),
+    Container(child: Text("Daily Horoscope"),
+    alignment: Alignment.bottomLeft,),
 
     Container(child: listview1("Fetch Your daily Horoscope"))
   ]);
