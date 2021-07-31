@@ -2,6 +2,7 @@ import 'package:astrobuddy_test/call.dart';
 import 'package:flutter/material.dart';
 import 'chat.dart';
 import 'call_creds.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HomePage();
@@ -17,8 +18,10 @@ class _HomePage extends State<HomePage> {
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),
           )),
-          leading: new IconButton(icon: new Icon(Icons.person), onPressed: users,
-            ),
+          leading: new IconButton(
+            icon: new Icon(Icons.person),
+            onPressed: users,
+          ),
           centerTitle: true,
           title: Text("AstroBuddy"),
           actions: [
@@ -31,7 +34,9 @@ class _HomePage extends State<HomePage> {
           ],
         ),
         body: SingleChildScrollView(
-            child: Column(
+            child:
+                // scrollDirection: Axis.vertical,
+                Column(
           children: [
             Container(
               child: Text("Go live with us"),
@@ -41,7 +46,8 @@ class _HomePage extends State<HomePage> {
               child: Row(
                 children: [
                   ElevatedButton(
-                    onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>CallPage())),
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CallPage())),
                     child: Row(children: [
                       Icon(Icons.call),
                       Text("  "),
@@ -52,7 +58,8 @@ class _HomePage extends State<HomePage> {
                   Text("-OR-"),
                   Text("  "),
                   ElevatedButton(
-                    onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage())),
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ChatPage())),
                     child: Row(
                       children: [
                         Icon(Icons.chat),
@@ -118,124 +125,70 @@ class _HomePage extends State<HomePage> {
               ),
             ),
             Container(
-              height: 500,
-              child: x == 0 ? list_view() : _gridView(),
-            )
+              height: 480,
+              child: x == 0 ? listview() : _gridView(),
+            ),
           ],
         )));
   }
-  void users()=>showModalBottomSheet(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(24),
-    ),
-    context: context,
-    builder: (context)=>Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ListTile(
-          leading: Icon(Icons.person_add),
-          title: Text('Add Other'),
-          onTap: (){},
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text('Add Other'),
-          subtitle: Text('Main User'),
-          onTap: (){},
-        ),
-      ],
-    )
-    );
 
-    void creds()=>showModalBottomSheet(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(24),
-    ),
-    context: context,
-    builder: (context)=>Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ListTile(
-          leading: Icon(Icons.chat),
-          title: Text('Buy Chat Credits'),
-          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Callcred())),
-        ),
-        ListTile(
-          leading: Icon(Icons.call),
-          title: Text('Buy Call Credits'),
-          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>CallPage())),
-        ),
-      ],
-    )
-    ); 
+  void users() => showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+      ),
+      context: context,
+      builder: (context) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.person_add),
+                title: Text('Add Other'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Add Other'),
+                subtitle: Text('Main User'),
+                onTap: () {},
+              ),
+            ],
+          ));
+
+  void creds() => showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+      ),
+      context: context,
+      builder: (context) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.chat),
+                title: Text('Buy Chat Credits'),
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Callcred())),
+              ),
+              ListTile(
+                leading: Icon(Icons.call),
+                title: Text('Buy Call Credits'),
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CallPage())),
+              ),
+            ],
+          ));
 }
-
-class list_view extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _list_view();
-}
-
-class _list_view extends State<list_view> {
-  int _sindex = 0;
-  List<String> item = <String>["Your Kundli", "Others Kundli", "Match Making", "Prediction", "Panchang"];
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: item.length,
-      itemBuilder: (context, int index) {
-        final items = item[index];
-        return Card(
-            elevation: 4.0,
-            child: Column(
-                // MainAxisSize mainAxisSize = MainAxisSize.max,
-                children: <Widget>[
-                  ListTile(
-                    dense: true,
-                    title: Text(items),
-                    //selected: index == _sindex,
-                    onTap: () {
-                      setState(() {
-                        _sindex = index;
-                        print(_sindex);
-                      });
-                    },
-                  ),
-                ]));
-      },
-    );
-  }
-}
-
-/*class grid extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _grid();
-}
-
-class _grid extends State<grid> {
-  List<String> _item = ["1", "2", "3", "4", "5", "6", "7", "8"];
-  @override
-  Widget build(BuildContext context) {
-    //List<String> items;
-    return GridView.count(
-        crossAxisCount: 2,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
-        children:_item.map((values){
-          return Container(
-            alignment:Alignment.center,
-            child: Text(values)
-          )
-        })toList(),);
-  }
-}*/
 
 Widget _gridView() {
-  List<String> items = ["Your Kundli", "Others Kundli", "Match Making", "Prediction", "Panchang"];
+  List<String> items = [
+    "Your Kundli",
+    "Others Kundli",
+    "Match Making",
+    "Prediction",
+    "Panchang"
+  ];
   return GridView.builder(
     itemCount: items.length,
-    //physics: const NeverScrollableScrollPhysics(),
+    physics: NeverScrollableScrollPhysics(),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
     itemBuilder: (context, index) => Card(
       margin: EdgeInsets.all(20.0),
@@ -247,4 +200,54 @@ Widget _gridView() {
       )),
     ),
   );
+}
+
+//   list View   //
+Widget listview() {
+  List<String> item = <String>[
+    "Your Kundli",
+    "Others Kundli",
+    "Match Making",
+    "Prediction",
+    "Panchang"
+  ];
+  return Column(children: [
+    Expanded(
+        child: Container(
+            child: ListView(children: [
+      listview1(item[0]),
+      listview1(item[1]),
+      listview1(item[2]),
+      listview1(item[3]),
+      listview1(item[4]),
+    ]))),
+
+    //SizedBox(height: 20),
+    Container(
+      child: Text("Our Resource"),
+    ),
+
+    Container(
+      height: 130,
+      child: ListView(
+        physics: NeverScrollableScrollPhysics(),
+        children: [listview1("VIDEOS"), listview1("MYTH BUSTER")],
+      ),
+    ),
+    Container(child: Text("Daily Horoscope")),
+
+    Container(child: listview1("Fetch Your daily Horoscope"))
+  ]);
+}
+
+Widget listview1(String s) {
+  return Card(
+      elevation: 4.0,
+      child: Column(children: <Widget>[
+        ListTile(
+          dense: true,
+          title: Text(s),
+          onTap: () {},
+        ),
+      ]));
 }
