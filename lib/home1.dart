@@ -65,7 +65,6 @@ class _HomePage extends State<HomePage> {
                         Icon(Icons.chat),
                         Text("  "),
                         Text("Live Chat"),
-                        
                       ],
                     ),
                   ),
@@ -125,10 +124,9 @@ class _HomePage extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
-              height: 520,
-              child: x == 0 ? listview() : _gridView(),
-            ),
+            x == 0
+                ? Container(height: 500, child: listview())
+                : Container(height: 1100, child: _gridView()),
           ],
         )));
   }
@@ -179,30 +177,6 @@ class _HomePage extends State<HomePage> {
           ));
 }
 
-Widget _gridView() {
-  List<String> items = [
-    "Your Kundli",
-    "Others Kundli",
-    "Match Making",
-    "Prediction",
-    "Panchang"
-  ];
-  return GridView.builder(
-    itemCount: items.length,
-    physics: NeverScrollableScrollPhysics(),
-    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-    itemBuilder: (context, index) => Card(
-      margin: EdgeInsets.all(20.0),
-      elevation: 4.0,
-      child: GridTile(
-          child: Center(
-        // children
-        child: Text(items[index]),
-      )),
-    ),
-  );
-}
-
 //   list View   //
 Widget listview() {
   List<String> item = <String>[
@@ -213,21 +187,19 @@ Widget listview() {
     "Panchang"
   ];
   return Column(children: [
-    Expanded(
-        child: Container(
-            child: ListView(children: [
-      listview1(item[0]),
-      listview1(item[1]),
-      listview1(item[2]),
-      listview1(item[3]),
-      listview1(item[4]),
-    ]))),
-
+    Container(
+        height: 260,
+        child: ListView(children: [
+          listview1(item[0]),
+          listview1(item[1]),
+          listview1(item[2]),
+          listview1(item[3]),
+          listview1(item[4]),
+        ])),
     Container(
       child: Text("Our Resource"),
       alignment: Alignment.bottomLeft,
     ),
-
     Container(
       height: 130,
       child: ListView(
@@ -235,9 +207,10 @@ Widget listview() {
         children: [listview1("VIDEOS"), listview1("MYTH BUSTER")],
       ),
     ),
-    Container(child: Text("Daily Horoscope"),
-    alignment: Alignment.bottomLeft,),
-
+    Container(
+      child: Text("Daily Horoscope"),
+      alignment: Alignment.bottomLeft,
+    ),
     Container(child: listview1("Fetch Your daily Horoscope"))
   ]);
 }
@@ -252,4 +225,106 @@ Widget listview1(String s) {
           onTap: () {},
         ),
       ]));
+}
+
+Widget _gridView() {
+  List<String> items = [
+    "Your Kundli",
+    "Others Kundli",
+    "Match Making",
+    "Prediction",
+    "Panchang"
+  ];
+  return Column(children: [
+    Container(
+        height: 750,
+        child: GridView(
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            children: [
+              Card(
+                margin: EdgeInsets.all(20.0),
+                elevation: 4.0,
+                child: GridTile(
+                    child: Center(
+                  // children
+                  child: Text("Your Kundli"),
+                )),
+              ),
+              Card(
+                margin: EdgeInsets.all(20.0),
+                elevation: 4.0,
+                child: GridTile(
+                    child: Center(
+                  // children
+                  child: Text("Others Kundli"),
+                )),
+              ),
+              Card(
+                margin: EdgeInsets.all(20.0),
+                elevation: 4.0,
+                child: GridTile(
+                    child: Center(
+                  // children
+                  child: Text("Match Making"),
+                )),
+              ),
+              Card(
+                margin: EdgeInsets.all(20.0),
+                elevation: 4.0,
+                child: GridTile(
+                    child: Center(
+                  // children
+                  child: Text("Prediction"),
+                )),
+              ),
+              Card(
+                margin: EdgeInsets.all(20.0),
+                elevation: 4.0,
+                child: GridTile(
+                    child: Center(
+                  // children
+                  child: Text("Panchang"),
+                )),
+              ),
+            ])),
+    Container(
+      child: Text("Our Resource"),
+      alignment: Alignment.bottomLeft,
+    ),
+    Container(
+      height: 250,
+      child: GridView(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            Card(
+              margin: EdgeInsets.all(20.0),
+              elevation: 4.0,
+              child: GridTile(
+                  child: Center(
+                // children
+                child: Text("Videos"),
+              )),
+            ),
+            Card(
+              margin: EdgeInsets.all(20.0),
+              elevation: 4.0,
+              child: GridTile(
+                  child: Center(
+                // children
+                child: Text("MYTH BUSTER"),
+              )),
+            ),
+          ] //listview1("VIDEOS"), listview1("MYTH BUSTER")],
+          ),
+    ),
+    Container(
+      child: Text("Daily Horoscope"),
+      alignment: Alignment.bottomLeft,
+    ),
+    Container(child: listview1("Fetch Your daily Horoscope"))
+  ]);
 }

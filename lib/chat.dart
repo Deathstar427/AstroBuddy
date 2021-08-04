@@ -11,10 +11,12 @@ class ChatPage extends StatelessWidget {
             borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(10),
         )),
-        leading: new IconButton(icon: new Icon(Icons.arrow_back), onPressed: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context)=>App()));  
-            }
-            ),
+        leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => App()));
+            }),
         title: Text("AstroBuddy Chat"),
         centerTitle: true,
         actions: [
@@ -26,7 +28,7 @@ class ChatPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Container(
-              decoration: new BoxDecoration(color: Color(0xffffb38a)),
+              decoration: new BoxDecoration(), //color: Color(0xffffb38a)),
               child: Column(children: [
                 Container(
 
@@ -50,18 +52,22 @@ class ChatPage extends StatelessWidget {
                         physics: NeverScrollableScrollPhysics(),
                         children: [
                           ListTile(
-                              leading: Icon(
-                                Icons.book,
-                                color: Colors.orange,
-                                size: 50,
-                              ),
+                              leading: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    minWidth: 44,
+                                    minHeight: 44,
+                                    maxWidth: 44,
+                                    maxHeight: 44,
+                                  ),
+                                  child: Image.asset('image/education.png',
+                                      fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.2),
                                   elevation: 0.0,
                                   child: Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Text(
-                                        "I am not so good at studies, I would like to know whether I should go for higher studies or join family business",
+                                        "I am not so good at studies, I would like to know whether I should go for higher studies or join family business?",
                                         style: TextStyle(fontSize: 18)),
                                   ))),
                           Divider(
@@ -69,48 +75,79 @@ class ChatPage extends StatelessWidget {
                             color: Colors.transparent,
                           ),
                           ListTile(
-                              leading: Icon(
-                                Icons.book,
-                                color: Colors.orange,
-                                size: 50,
-                              ),
+                              leading: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    minWidth: 44,
+                                    minHeight: 44,
+                                    maxWidth: 44,
+                                    maxHeight: 44,
+                                  ),
+                                  child: Image.asset('image/health.png',
+                                      fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),
                                   elevation: 0.0,
                                   child: Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Text(
-                                        "I am not so good at studies, I would like to know whether I should go for higher studies or join family business",
+                                        "I am having major health issues from last two months. I want to know if it has anything to do with my sun signs?",
                                         style: TextStyle(fontSize: 18)),
                                   ))),
                           ListTile(
-                              leading: Icon(
-                                Icons.book,
-                                color: Colors.orange,
-                                size: 50,
-                              ),
+                              leading: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    minWidth: 44,
+                                    minHeight: 44,
+                                    maxWidth: 44,
+                                    maxHeight: 44,
+                                  ),
+                                  child: Image.asset('image/relationship.png',
+                                      fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),
                                   elevation: 0.0,
                                   child: Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Text(
-                                        "I am not so good at studies, I would like to know whether I should go for higher studies or join family business",
+                                        "I would like to het my horoscope matched with my partner.",
                                         style: TextStyle(fontSize: 18)),
                                   ))),
                           ListTile(
-                              leading: Icon(
-                                Icons.book,
-                                color: Colors.orange,
-                                size: 50,
-                              ),
+                              leading: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    minWidth: 44,
+                                    minHeight: 44,
+                                    maxWidth: 44,
+                                    maxHeight: 44,
+                                  ),
+                                  child: Image.asset('image/career.png',
+                                      fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),
                                   elevation: 0.0,
                                   child: Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Text(
-                                        "I am not so good at studies, I would like to know whether I should go for higher studies or join family business",
+                                        "I have some questions about my career but I don't have exact date of birth, can you still help?",
+                                        style: TextStyle(fontSize: 18)),
+                                  ))),
+                          ListTile(
+                              leading: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    minWidth: 44,
+                                    minHeight: 44,
+                                    maxWidth: 44,
+                                    maxHeight: 44,
+                                  ),
+                                  child: Image.asset('image/wealth.png',
+                                      fit: BoxFit.cover)),
+                              title: Card(
+                                  color: Colors.white.withOpacity(0.1),
+                                  elevation: 0.0,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Text(
+                                        "I want to know whether I will succeed in my new business?",
                                         style: TextStyle(fontSize: 18)),
                                   )))
                         ]))
