@@ -2,7 +2,12 @@ import 'package:astrobuddy_test/home.dart';
 import 'package:astrobuddy_test/pending_call.dart';
 import 'package:flutter/material.dart';
 
-class CallPage extends StatelessWidget {
+class CallPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _CallPage();
+}
+
+class _CallPage extends State<CallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +16,12 @@ class CallPage extends StatelessWidget {
             borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(10),
         )),
-        leading: new IconButton(icon: new Icon(Icons.arrow_back), onPressed: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context)=>App()));  
-            }
-            ),
+        leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => App()));
+            }),
         title: Text("Talk to AstroBuddy"),
         centerTitle: true,
         actions: [
@@ -30,14 +37,14 @@ class CallPage extends StatelessWidget {
           //height: 20,
           child: FittedBox(
             child: FloatingActionButton.extended(
-              onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Pencall())),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Pencall())),
               hoverColor: Colors.grey[400],
               icon: Icon(Icons.call),
               label: Text("Avail your last pending call"),
             ),
           )),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
