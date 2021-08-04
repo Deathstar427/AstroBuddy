@@ -239,6 +239,7 @@ Widget _gridView() {
     Container(
         height: 750,
         child: GridView(
+            padding: EdgeInsets.all(20),
             physics: NeverScrollableScrollPhysics(),
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
@@ -296,6 +297,7 @@ Widget _gridView() {
     Container(
       height: 250,
       child: GridView(
+          padding: EdgeInsets.all(20),
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           physics: NeverScrollableScrollPhysics(),
