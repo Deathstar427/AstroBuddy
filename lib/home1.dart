@@ -124,8 +124,9 @@ class _HomePage extends State<HomePage> {
                 ],
               ),
             ),
+            
             x == 0
-                ? Container(height: 500, child: listview())
+                ? Container(height: 520, child: listview())
                 : Container(height: 1100, child: _gridView()),
           ],
         )));
@@ -188,17 +189,25 @@ Widget listview() {
   ];
   return Column(children: [
     Container(
-        height: 260,
-        child: ListView(children: [
+        height: 290,
+        child: ListView(
+          physics: NeverScrollableScrollPhysics(),
+            children: [
           listview1(item[0]),
           listview1(item[1]),
           listview1(item[2]),
           listview1(item[3]),
           listview1(item[4]),
         ])),
+    SizedBox(
+      height: 5,
+    ),
     Container(
       child: Text("Our Resource"),
       alignment: Alignment.bottomLeft,
+    ),
+    SizedBox(
+      height: 5,
     ),
     Container(
       height: 130,

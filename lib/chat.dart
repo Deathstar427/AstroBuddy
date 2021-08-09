@@ -59,7 +59,8 @@ class ChatPage extends StatelessWidget {
                                     maxWidth: 44,
                                     maxHeight: 44,
                                   ),
-                                  child: Image.asset('image/education.png',
+                                  child: Image.asset(
+                                      "assets/image/education.png",
                                       fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.2),
@@ -82,7 +83,7 @@ class ChatPage extends StatelessWidget {
                                     maxWidth: 44,
                                     maxHeight: 44,
                                   ),
-                                  child: Image.asset('image/health.png',
+                                  child: Image.asset("assets/image/health.png",
                                       fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),
@@ -101,7 +102,8 @@ class ChatPage extends StatelessWidget {
                                     maxWidth: 44,
                                     maxHeight: 44,
                                   ),
-                                  child: Image.asset('image/relationship.png',
+                                  child: Image.asset(
+                                      "assets/image/relationship.png",
                                       fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),
@@ -120,7 +122,7 @@ class ChatPage extends StatelessWidget {
                                     maxWidth: 44,
                                     maxHeight: 44,
                                   ),
-                                  child: Image.asset('image/career.png',
+                                  child: Image.asset("assets/image/career.png",
                                       fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),
@@ -139,7 +141,7 @@ class ChatPage extends StatelessWidget {
                                     maxWidth: 44,
                                     maxHeight: 44,
                                   ),
-                                  child: Image.asset('image/wealth.png',
+                                  child: Image.asset("assets/image/wealth.png",
                                       fit: BoxFit.cover)),
                               title: Card(
                                   color: Colors.white.withOpacity(0.1),

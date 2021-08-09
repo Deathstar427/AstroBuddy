@@ -8,8 +8,11 @@ class CallPage extends StatefulWidget {
 }
 
 class _CallPage extends State<CallPage> {
+
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         shape: RoundedRectangleBorder(
@@ -31,7 +34,47 @@ class _CallPage extends State<CallPage> {
           )
         ],
       ),
-      body: videoPage(),
+      body:Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                  margin: EdgeInsets.only(top: 15, bottom: 5, left: 5),
+                  child: Text("Choose Video Call Plans"),
+                  alignment: Alignment.bottomLeft),
+              Flexible(
+                child: GridView.builder(
+                    gridDelegate:
+                    SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio:width/(height*0.75)),
+                    // physics: NeverScrollableScrollPhysics(),
+                    itemCount: 5,
+                    itemBuilder: (
+                        context,
+                        index,
+                        ) =>
+                        Card(
+                            margin: EdgeInsets.all(20.0),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            elevation: 4.0,
+                            child: GridTile(
+                                child: Column(
+                                  children: [
+                                    star("5.0"),
+                                    Expanded(
+                                      child: circleBox("assets/image/a.png"),
+                                    ),
+                                    Divider(),
+                                    Text("Astrobuddy Chandrika"),
+                                    SizedBox(height: 5),
+                                    tStyle("English/Hindi"),
+                                    SizedBox(height: 5),
+                                    tStyle("Rs 20/Min"),
+                                    videoButton(),
+                                  ],
+                                )))),
+              )
+            ],
+          )) ,
       floatingActionButton: Container(
           width: 200,
           //height: 20,
@@ -49,25 +92,16 @@ class _CallPage extends State<CallPage> {
   }
 }
 
-Widget videoPage() {
-  return Container(
-      child: Column(
-    children: <Widget>[
-      Container(
-          margin: EdgeInsets.only(top: 15, bottom: 5, left: 5),
-          child: Text("Choose Video Call Plans"),
-          alignment: Alignment.bottomLeft),
-      Flexible(
-        child: gridView(),
-      )
-    ],
-  ));
-}
+/*Widget videoPage() {
+  return ;
+}*/
 
-Widget gridView() {
+/*Widget gridView(BuildContext context) {
+  double height = MediaQuery.of(context).size.height;
+  double width = MediaQuery.of(context).size.width;
   return GridView.builder(
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio:width/(height/4)),
       // physics: NeverScrollableScrollPhysics(),
       itemCount: 55,
       itemBuilder: (
@@ -84,7 +118,7 @@ Widget gridView() {
                 children: [
                   star("5.0"),
                   Expanded(
-                    child: circleBox('image/a.png'),
+                    child: circleBox("assets/image/a.png"),
                   ),
                   Divider(),
                   Text("Astrobuddy Chandrika"),
@@ -95,7 +129,7 @@ Widget gridView() {
                   videoButton(),
                 ],
               ))));
-}
+}*/
 
 Widget star(String s) {
   return Container(
