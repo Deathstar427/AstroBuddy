@@ -1,8 +1,10 @@
+import 'package:astrobuddy_test/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'home1.dart';
 import 'chat.dart';
 import 'call.dart';
+import 'settings.dart';
 
 class App extends StatefulWidget {
   @override
@@ -31,7 +33,7 @@ class _AppState extends State<App> {
         return ChatPage();
       case 2:
         return CallPage();
-      //case 3: return
+      case 3: return Settings();
       default:
         return HomePage();
     }
