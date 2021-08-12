@@ -1,7 +1,9 @@
 import 'package:astrobuddy_test/call.dart';
+import 'package:astrobuddy_test/profile.dart';
 import 'package:flutter/material.dart';
 import 'chat.dart';
 import 'call_creds.dart';
+import 'profile.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -124,11 +126,11 @@ class _HomePage extends State<HomePage> {
                 ],
               ),
             ),
-            
+
             x == 0
-                ? Container(height: 520, child: listview())
-                : Container(height: 1100, child: _gridView()),
-          ],
+                ? Container( child: listview())
+                : Container( child: _gridView()),
+            ],
         )));
   }
 
@@ -149,9 +151,10 @@ class _HomePage extends State<HomePage> {
                 leading: Icon(Icons.person),
                 title: Text('Add Other'),
                 subtitle: Text('Main User'),
-                onTap: () {},
+                onTap: () =>Navigator.push(context,
+  MaterialPageRoute(builder: (context) => Profile()),
               ),
-            ],
+              )],
           ));
 
   void creds() => showModalBottomSheet(
@@ -188,6 +191,7 @@ Widget listview() {
     "Panchang"
   ];
   return Column(children: [
+
     Container(
         height: 290,
         child: ListView(

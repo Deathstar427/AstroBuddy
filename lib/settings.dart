@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'profile.dart';
 
 class Settings extends StatefulWidget{
   @override
@@ -45,9 +46,9 @@ class _SettingsState extends State<Settings>{
             children: [
               Row(children: [
                 Container(child: CircleAvatar(child:Icon(Icons.arrow_circle_down),),),
-                SizedBox(width: 150,),
+                SizedBox(width: 100,),
                 Column(children: [Text("Credits Available"), Text("0"),],),
-                SizedBox(width: 150,),
+                SizedBox(width: 100,),
                 Icon(Icons.arrow_forward_ios),
               ],),
               SizedBox(height: 20,),
@@ -55,7 +56,8 @@ class _SettingsState extends State<Settings>{
             ],
           ), ),),
         Container(child: Text("My Account",),alignment: Alignment.bottomLeft,),
-        ListTile(leading: Icon(Icons.person),title: Text("My profile"),trailing: Icon(Icons.arrow_forward_ios),),
+        ListTile(leading: Icon(Icons.person),title: Text("My profile"),trailing: Icon(Icons.arrow_forward_ios),onTap:(){ Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Profile()));}),
         ListTile(leading: Icon(Icons.call),title: Text("My Call History"),trailing: Icon(Icons.arrow_forward_ios),),
         ListTile(leading: Icon(Icons.settings_power_rounded),title: Text("Logout"),trailing: Icon(Icons.arrow_forward_ios),),
         SizedBox(height: 10,),
