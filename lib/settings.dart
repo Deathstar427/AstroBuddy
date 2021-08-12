@@ -1,4 +1,5 @@
 import 'package:astrobuddy_test/contact_us.dart';
+import 'package:astrobuddy_test/offers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -90,7 +91,9 @@ class _SettingsState extends State<Settings>{
         ListTile(leading: Icon(Icons.contact_phone),title: Text("Contact Us"),trailing: Icon(Icons.arrow_forward_ios),onTap:(){
           Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUs()));
         } ,),
-        ListTile(leading: Icon(Icons.attach_money),title: Text("Our Offers"),trailing: Icon(Icons.arrow_forward_ios),),
+        ListTile(leading: Icon(Icons.attach_money),title: Text("Our Offers"),trailing: Icon(Icons.arrow_forward_ios),onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Offers()));
+        },),
         ListTile(leading: Icon(Icons.share),title: Text("Share"),trailing: Icon(Icons.arrow_forward_ios),),
         ],)),
       )
