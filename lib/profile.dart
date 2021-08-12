@@ -38,7 +38,7 @@ class _ProfileState extends State<Profile>{
           child: Container(
             child:Column(
               children: [
-                Center(child:Image.network("https://unsplash.com/@charlesdeluvio",height:20)),
+                //Center(child:Image.network("https://unsplash.com/@charlesdeluvio",height:20)),
                 Center(child: Text("$name",style: TextStyle(fontSize: 20),)),
                 SizedBox(height: 10,),
                 Row(
