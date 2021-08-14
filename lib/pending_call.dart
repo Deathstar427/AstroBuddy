@@ -14,7 +14,7 @@ class _PendState extends State<Pencall>{
       title: 'AstroBuddy',
       
       home:Scaffold(
-        appBar: AppBar(
+        appBar: AppBar(backgroundColor: Colors.deepOrange,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),

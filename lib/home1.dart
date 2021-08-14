@@ -15,7 +15,7 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+        appBar: AppBar(backgroundColor: Colors.deepOrange,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),
@@ -47,7 +47,9 @@ class _HomePage extends State<HomePage> {
             Container(
               child: Row(
                 children: [
-                  ElevatedButton(
+                  ElevatedButton( style: ElevatedButton.styleFrom(
+                    primary: Colors.deepOrange,
+                  ),
                     onPressed: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) => CallPage())),
                     child: Row(children: [
@@ -59,7 +61,9 @@ class _HomePage extends State<HomePage> {
                   Text("  "),
                   Text("-OR-"),
                   Text("  "),
-                  ElevatedButton(
+                  ElevatedButton(style: ElevatedButton.styleFrom(
+                    primary: Colors.deepOrange,
+                  ),
                     onPressed: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) => ChatPage())),
                     child: Row(
@@ -80,7 +84,9 @@ class _HomePage extends State<HomePage> {
             ),
             Container(
               child: Center(
-                child: ElevatedButton(
+                child: ElevatedButton( style: ElevatedButton.styleFrom(
+                    primary: Colors.deepOrange,
+                  ),
                   onPressed: users,
                   child: Row(
                     children: [

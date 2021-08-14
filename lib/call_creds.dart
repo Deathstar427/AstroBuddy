@@ -10,7 +10,7 @@ class Callcred extends StatelessWidget{
       title: 'AstroBuddy',
       
       home:Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Colors.deepOrange,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),
@@ -39,7 +39,10 @@ class Callcred extends StatelessWidget{
           const SizedBox(height: 10,),
           Container(child:Text('(1 Chat Credit = INR 100.00')),
           const SizedBox(height: 20,),
-          ElevatedButton(onPressed: (){
+          ElevatedButton( style: ElevatedButton.styleFrom(
+            primary: Colors.deepOrange,
+          ),
+            onPressed: (){
             print('$numberController.text');
             credits='$numberController.text';
           }, child: Text('Make Payment'))

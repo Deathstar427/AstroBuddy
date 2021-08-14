@@ -45,25 +45,30 @@ class _AppState extends State<App> {
 
   Widget buildBottomNav() {
     return BottomNavyBar(
+      backgroundColor: Colors.cyan[90],
       selectedIndex: index,
       onItemSelected: (index) => setState(() => this.index = index),
       items: <BottomNavyBarItem>[
         BottomNavyBarItem(
+          activeColor: Colors.deepOrange,
           icon: Icon(Icons.home),
           title: Text("Home"),
           textAlign: TextAlign.center,
         ),
         BottomNavyBarItem(
+          activeColor: Colors.deepOrange,
           icon: Icon(Icons.chat),
           title: Text("Chat"),
           textAlign: TextAlign.center,
         ),
         BottomNavyBarItem(
+          activeColor: Colors.deepOrange,
           icon: Icon(Icons.call),
           title: Text("Call"),
           textAlign: TextAlign.center,
         ),
         BottomNavyBarItem(
+          activeColor: Colors.deepOrange,
           icon: Icon(Icons.settings),
           title: Text("Settings"),
           textAlign: TextAlign.center,

@@ -56,7 +56,8 @@ class Offers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Our Offers')),
+      appBar: AppBar( backgroundColor: Colors.deepOrange,
+        title: Text('Our Offers')),
       body:
         
           Column(

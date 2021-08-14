@@ -9,7 +9,7 @@ class ContactUs extends StatelessWidget{
       title: 'AstroBuddy',
       
       home:Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Colors.deepOrange,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(10),

@@ -14,7 +14,7 @@ class _CallPage extends State<CallPage> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar( backgroundColor: Colors.deepOrange,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(10),
@@ -80,6 +80,7 @@ class _CallPage extends State<CallPage> {
           //height: 20,
           child: FittedBox(
             child: FloatingActionButton.extended(
+              backgroundColor: Colors.deepOrange,
               onPressed: () => Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Pencall())),
               hoverColor: Colors.grey[400],
@@ -172,7 +173,7 @@ Widget videoButton() {
           side: BorderSide(color: Color.fromRGBO(0, 160, 227, 1))),
       onPressed: () {},
       padding: EdgeInsets.all(10.0),
-      color: Color.fromRGBO(0, 160, 227, 1),
+      color: Colors.deepOrange,
       textColor: Colors.white,
       child: Text("Video Call", style: TextStyle(fontSize: 10)),
     ),
