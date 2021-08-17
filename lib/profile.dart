@@ -1,3 +1,4 @@
+import 'package:astrobuddy_test/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 //import 'package:intl/intl.dart';
@@ -28,7 +29,7 @@ class _ProfileState extends State<Profile>{
               )),
           leading: new IconButton(icon: new Icon(Icons.arrow_back), onPressed: (){
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => App()));
+                context, MaterialPageRoute(builder: (context) => Settings()));
           }
           ),
           centerTitle: true,
@@ -38,7 +39,7 @@ class _ProfileState extends State<Profile>{
           child: Container(
             child:Column(
               children: [
-                Center(child:Image.network("https://unsplash.com/@charlesdeluvio",height:20)),
+                //Center(child:Image.network("https://unsplash.com/@charlesdeluvio",height:20)),
                 Center(child: Text("$name",style: TextStyle(fontSize: 20),)),
                 SizedBox(height: 10,),
                 Row(

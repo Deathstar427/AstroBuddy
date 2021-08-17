@@ -6,7 +6,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var screensize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar( backgroundColor: Colors.deepOrange,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(10),
@@ -158,6 +158,7 @@ class ChatPage extends StatelessWidget {
           width: 100,
           child: FittedBox(
             child: FloatingActionButton.extended(
+              backgroundColor: Colors.deepOrange,
               onPressed: () {},
               hoverColor: Colors.grey[400],
               icon: Icon(Icons.chat),
