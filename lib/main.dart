@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-//import 'profile.dart';
+import 'form.dart';
 
 void main() {
-  runApp(App());
+  runApp(Newform());
 }
 
