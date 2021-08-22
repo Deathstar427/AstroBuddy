@@ -1,31 +1,50 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter/cupertino.dart';
+
+class MyApp1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: LoginForm(),
+    );
+  }
+}
+
 
 class LoginForm extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _LoginForm();
+  _LoginForm createState() => _LoginForm();
 }
 
 class _LoginForm extends State<LoginForm> {
 
   final userName = TextEditingController();
-  DateTime dob = DateTime.now() ;
+  DateTime _currentDate = DateTime.now();
 
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: _currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != _currentDate)
+      setState(() {
+        _currentDate = pickedDate;
+      });
+  }
 
-  void initState(){
+  /*void initState(){
     super.initState();
-    dob = DateTime.now();
     userName.addListener(() => setState((){}));
 
-  }
+  }*/
 
   @override
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.deepOrange),
-        debugShowCheckedModeBanner: false,
-        home:Scaffold(
+    return Scaffold(
         body: Container(
           margin: EdgeInsets.all(20),
           child: Column(
@@ -33,26 +52,15 @@ class _LoginForm extends State<LoginForm> {
               children: [
               //name(),
                 ListTile(
-                  title: Text("${dob.year}"),
-                  trailing: IconButton(icon:Icon(Icons.calendar_today),onPressed:() => _datepicker()),
+                  title: Text("${_currentDate.year.toString()}"),
+                  trailing: IconButton(icon:Icon(Icons.calendar_today),onPressed:() => _selectDate(context)),
 
                 )
     ]))
 
-    ));
+    );
 
   }
-
-  Future<void> _datepicker() async {
-    final DateTime datePicker = await showDatePicker(context: context,
-        initialDate: dob,
-        firstDate: DateTime(1944),
-        lastDate: DateTime.now()
-    ) as DateTime;
-    if(datePicker != dob){
-      setState(() {
-        dob = datePicker;
-      });}
 
   Widget name() => TextField(
     cursorColor: Colors.deepOrange,
@@ -73,4 +81,4 @@ class _LoginForm extends State<LoginForm> {
 
 
   }
-}
+
