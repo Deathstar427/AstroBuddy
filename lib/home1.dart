@@ -1,4 +1,5 @@
 import 'package:astrobuddy_test/call.dart';
+import 'package:astrobuddy_test/date1.dart';
 import 'package:astrobuddy_test/profile.dart';
 import 'package:flutter/material.dart';
 import 'chat.dart';
@@ -151,7 +152,9 @@ class _HomePage extends State<HomePage> {
               ListTile(
                 leading: Icon(Icons.person_add),
                 title: Text('Add Other'),
-                onTap: () {},
+                onTap: () =>Navigator.push(context,
+  MaterialPageRoute(builder: (context) => MyApp1()),
+              ),
               ),
               ListTile(
                 leading: Icon(Icons.person),

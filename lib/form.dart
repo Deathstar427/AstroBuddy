@@ -52,7 +52,7 @@ class _LoginForm extends State<LoginForm> {
               children: [
               //name(),
                 ListTile(
-                  title: Text("${_currentDate.year.toString()}"),
+                  title: Text("${_currentDate.day.toString()}/${_currentDate.month.toString()}/${_currentDate.year.toString()}"),
                   trailing: IconButton(icon:Icon(Icons.calendar_today),onPressed:() => _selectDate(context)),
 
                 )
