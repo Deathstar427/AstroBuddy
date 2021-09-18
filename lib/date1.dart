@@ -108,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     userName.addListener(() => setState(() {}));
   }
+  final List<bool> isSelected=[false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -137,6 +138,25 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             SizedBox(height: 30),
             //gender,
+            Container(child: ToggleButtons(
+          children: <Widget>[
+            Icon(Icons.male),
+            Icon(Icons.female),
+            Icon(Icons.transgender),
+  ],
+  onPressed: (int index) {
+    setState(() {
+      for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
+        if (buttonIndex == index) {
+          isSelected[buttonIndex] = true;
+        } else {
+          isSelected[buttonIndex] = false;
+        }
+      }
+    });
+  },
+  isSelected: isSelected,
+),),
             name(),
             date(),
             time()

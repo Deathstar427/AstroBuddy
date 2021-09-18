@@ -34,7 +34,7 @@ class Login extends StatelessWidget {
                       hintText: 'Username',
                       prefixIcon: Icon(Icons.person),
                     ),
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.done,
                   ),
                   margin: EdgeInsets.only(
@@ -54,9 +54,9 @@ class Login extends StatelessWidget {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5)),
                       hintText: 'Password',
-                      //prefixIcon: Icon(Icons.password),
+                      prefixIcon: Icon(Icons.password),
                     ),
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
                   ),
                   margin: EdgeInsets.only(
